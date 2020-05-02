@@ -21,16 +21,18 @@ const SelectWithLabelFormGroup = (props: Props) => {
   return (
     <div className="form-group">
       <Label text={label} htmlFor={id} />
-      <Select disabled={!isEditable} onChange={onChange} value={value}>
-        <option disabled value="">
-          -- Choose --
-        </option>
-        {options.map((option) => (
-          <option key={option.value} value={option.value}>
-            {option.label}
+      <div data-cy={name}>
+        <Select disabled={!isEditable} onChange={onChange} value={value} data-cy={name}>
+          <option disabled value="">
+            -- Choose --
           </option>
-        ))}
-      </Select>
+          {options.map((option) => (
+            <option key={option.value} value={option.value}>
+              {option.label}
+            </option>
+          ))}
+        </Select>
+      </div>
     </div>
   )
 }

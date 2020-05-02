@@ -19,14 +19,16 @@ const TextFieldWithLabelFormGroup = (props: Props) => {
   return (
     <div className="form-group">
       <Label text={label} htmlFor={id} isRequired={isRequired} />
-      <TextField
-        rows={4}
-        value={value}
-        disabled={!isEditable}
-        onChange={onChange}
-        isInvalid={isInvalid}
-        feedback={feedback}
-      />
+      <div data-cy={name}>
+        <TextField
+          rows={4}
+          value={value}
+          disabled={!isEditable}
+          onChange={onChange}
+          isInvalid={isInvalid}
+          feedback={feedback}
+        />
+      </div>
     </div>
   )
 }
