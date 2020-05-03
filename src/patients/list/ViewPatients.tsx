@@ -56,7 +56,7 @@ const ViewPatients = () => {
     <table className="table table-hover">
       <thead className="thead-light ">
         <tr>
-          <th>{t('patient.code')}</th>
+          <th >{t('patient.code')}</th>
           <th>{t('patient.givenName')}</th>
           <th>{t('patient.familyName')}</th>
           <th>{t('patient.sex')}</th>
@@ -66,7 +66,7 @@ const ViewPatients = () => {
       <tbody>
         {patients.map((p) => (
           <tr key={p.id} onClick={() => history.push(`/patients/${p.id}`)}>
-            <td>{p.code}</td>
+            <td data-cy='patientId'>{p.code}</td>
             <td>{p.givenName}</td>
             <td>{p.familyName}</td>
             <td>{p.sex}</td>

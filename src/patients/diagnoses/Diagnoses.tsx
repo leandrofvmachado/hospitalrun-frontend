@@ -34,7 +34,7 @@ const Diagnoses = (props: Props) => {
   return (
     <>
       <div className="row">
-        <div className="col-md-12 d-flex justify-content-end">
+        <div className="col-md-12 d-flex justify-content-end" data-cy='add-diagnoses'>
           {permissions.includes(Permissions.AddDiagnosis) && (
             <Button
               outlined

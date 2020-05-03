@@ -9,6 +9,9 @@ describe('Create patient', () => {
 
     it('Successful patient creation following allergy, diagnosis and notes addition', () => {
         var id = '';
+        var allergy = 'Being a bitch'
+        var diagnoses = 'Pro thief'
+        var note = 'She likes to dress red clothes'
 
         cy.get('.nav').contains('Pacientes').click()
         cy.get('.nav-item').contains('Novo Paciente').click()
@@ -33,7 +36,26 @@ describe('Create patient', () => {
             id = text.split('(')[1].split(')')[0]
 
             cy.get('.nav-item').contains('Lista de pacientes').click()
-            cy.get('tr').should('contain', id)
+            cy.get('[data-cy=patientId]').should('contain', id)
+            cy.get('[data-cy=patientId]').contains(id).click()
         })
+
+        cy.get('button').contains('Alergias').click()
+        cy.get('[data-cy=add-allergy]').find('button').click()
+        cy.get('#nameTextInput').type(allergy)
+        cy.get('.btn-success').click()
+        cy.get('.list-group-item').should('contain', allergy)
+
+        cy.get('button').contains('Diagnósticos').click()
+        cy.get('[data-cy=add-diagnoses]').find('button').click()
+        cy.get('#nameTextInput').type(diagnoses)
+        cy.get('.btn-success').click()
+        cy.get('.list-group-item').should('contain', diagnoses)
+
+        cy.get('button').contains('Notas').click()
+        cy.get('[data-cy=add-note]').find('button').click()
+        cy.get('[data-cy=noteTextField]').find('textarea').type(note)
+        cy.get('.btn-success').click()
+        cy.get('.list-group-item').should('contain', note)
     })
 })

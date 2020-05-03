@@ -30,7 +30,7 @@ const NoteTab = (props: Props) => {
   return (
     <div>
       <div className="row">
-        <div className="col-md-12 d-flex justify-content-end">
+        <div className="col-md-12 d-flex justify-content-end" data-cy='add-note'>
           {permissions.includes(Permissions.WritePatients) && (
             <Button
               outlined

@@ -30,7 +30,7 @@ const Allergies = (props: AllergiesProps) => {
   return (
     <>
       <div className="row">
-        <div className="col-md-12 d-flex justify-content-end">
+        <div className="col-md-12 d-flex justify-content-end" data-cy='add-allergy'>
           {permissions.includes(Permissions.AddAllergy) && (
             <Button
               outlined
